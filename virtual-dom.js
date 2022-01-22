@@ -1,8 +1,8 @@
-function h(type, props, ...children) {
+function virtualDom(type, props, ...children) {
     return { type, props, children }
 }
 
-// const vnode = h('ul', {'class': 'list'}, h('li', {}, 'item1'), h('li', {}, 'item2'))
+// const vnode = virtualDom('ul', {'class': 'list'}, virtualDom('li', {}, 'item1'), virtualDom('li', {}, 'item2'))
 // console.log(vnode);
 
 // https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/
@@ -54,7 +54,7 @@ function changed(node1, node2) {
 }
 
 
-/** @jsx h */
+/** @jsx virtualDom */
 // const a = (
 //     <ul className=”list”>
 // <li>item 1</li>
@@ -63,8 +63,8 @@ function changed(node1, node2) {
 // );
 
 // => it will be compiled to following by babel
-const a = h("ul", { className: "list" }, h("li", {}, "item 1"), h("li", {}, "item 2"))
-const b = h("ul", { className: "list" }, h("li", {}, "item 1"), h("li", {}, "hello!!!"))
+const a = virtualDom("ul", { className: "list" }, virtualDom("li", {}, "item 1"), virtualDom("li", {}, "item 2"))
+const b = virtualDom("ul", { className: "list" }, virtualDom("li", {}, "item 1"), virtualDom("li", {}, "hello!!!"))
 
 const $root = document.getElementById('root');
 const $reload = document.getElementById('reload');
