@@ -1,0 +1,18 @@
+{ 
+  "type": "ul", 
+  "props": {
+    "class": "list"
+  }, 
+  "children": [
+    { 
+      "type": "li",
+      "props": {},
+      "children": ["item 1"]
+    },
+    {
+      "type": "li",
+      "props": {},
+      "children": ["item 2"]
+    }
+  ]
+}
