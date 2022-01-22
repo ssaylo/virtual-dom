@@ -21,6 +21,18 @@ function createElement(node) {
     return $el;
 }
 
+/**
+ *
+ * @param $parent
+ * @param newNode
+ * @param oldNode
+ * @param index
+ *
+ * 1. only newNode -> appendChild
+ * 2. only !newNode -> removeChild
+ * 3. oldNode, newNode -> replace(old, new)
+ * 4. both nodes are the same, so we need to diff the child nodes
+ */
 function updateElement($parent, newNode, oldNode, index = 0) {
     if(!oldNode) {
         $parent.appendChild(createElement(newNode))
@@ -47,6 +59,17 @@ function updateElement($parent, newNode, oldNode, index = 0) {
     }
 }
 
+/**
+ *
+ * @param node1
+ * @param node2
+ * @returns {boolean}
+ *
+ * we need to compare both elements and text nodes
+ * 1. compare typeof node
+ * 2. compare text node
+ * 3. compare type of html element
+ */
 function changed(node1, node2) {
     return typeof node1 !== typeof node2
         || typeof node1 === 'string' && node1 !== node2
