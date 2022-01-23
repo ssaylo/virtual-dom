@@ -4,12 +4,18 @@
   "description": "write my own virtual dom",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lib": "babel src/virtual-dom.jsx -d lib"
   },
   "keywords": [
     "virtual",
     "dom"
   ],
   "author": "ssaylo",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-react": "^7.16.7"
+  }
 }
